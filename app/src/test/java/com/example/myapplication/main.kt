@@ -50,6 +50,9 @@ class Controller() {
     }
 
     private fun courseUsers() {
+        view.message("Kurs raqamini kiriting: ")
+        var courseid = init.nextInt()
+        model.showCourseUsers(courseid)
         onClick()
     }
 
@@ -136,8 +139,16 @@ class Model() {
         courses.add(course)
     }
 
-    fun showCourseUsers() {
-
+    fun showCourseUsers(courseid: Int) {
+        if (courses.size>0){
+            var groupList = courses[courseid]
+            if (groupList.students!!.size > 0){
+                println("Kursdagi userlar ro'yxati: ")
+                for (i in 0 until groupList.students!!.size){
+                    println(groupList.students!![i].name)
+                }
+            }
+        }
     }
 }
 
